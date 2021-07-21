@@ -13,12 +13,13 @@ import (
 )
 
 const (
-	DirectoryEtcRoot      = "/etc"
-	DirectoryEtcSeaweedFS = "/etc/seaweedfs"
-	FilerConfName         = "filer.conf"
-	IamConfigDirecotry    = "/etc/iam"
-	IamIdentityFile       = "identity.json"
-	IamPoliciesFile       = "policies.json"
+	DirectoryEtcRoot       = "/etc"
+	DirectoryEtcSeaweedFS  = "/etc/seaweedfs"
+	DirectoryEtcRemote     = "/etc/remote"
+	FilerConfName          = "filer.conf"
+	IamConfigDirecotry     = "/etc/iam"
+	IamIdentityFile        = "identity.json"
+	IamPoliciesFile        = "policies.json"
 )
 
 type FilerConf struct {
@@ -125,6 +126,9 @@ func mergePathConf(a, b *filer_pb.FilerConf_PathConf) {
 	a.Fsync = b.Fsync || a.Fsync
 	if b.VolumeGrowthCount > 0 {
 		a.VolumeGrowthCount = b.VolumeGrowthCount
+	}
+	if b.ReadOnly {
+		a.ReadOnly = b.ReadOnly
 	}
 }
 
