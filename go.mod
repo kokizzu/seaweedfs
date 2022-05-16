@@ -144,7 +144,7 @@ require (
 	modernc.org/memory v1.1.1 // indirect
 	modernc.org/opt v0.1.1 // indirect
 	modernc.org/sqlite v1.17.2
-	modernc.org/strutil v1.1.1 // indirect
+	modernc.org/strutil v1.1.1
 	modernc.org/token v1.0.0 // indirect
 )
 
@@ -156,7 +156,7 @@ require (
 	github.com/hashicorp/raft v1.3.9
 	github.com/hashicorp/raft-boltdb v0.0.0-20220329195025-15018e9b97e0
 	github.com/ydb-platform/ydb-go-sdk-auth-environ v0.1.0
-	github.com/ydb-platform/ydb-go-sdk/v3 v3.25.0
+	github.com/ydb-platform/ydb-go-sdk/v3 v3.25.3
 )
 
 require (
