@@ -9,7 +9,7 @@ require (
 	github.com/Azure/azure-pipeline-go v0.2.3
 	github.com/Azure/azure-storage-blob-go v0.15.0
 	github.com/Shopify/sarama v1.36.0
-	github.com/aws/aws-sdk-go v1.44.95
+	github.com/aws/aws-sdk-go v1.44.100
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -64,7 +64,7 @@ require (
 	github.com/linxGnu/grocksdb v1.7.7
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/mattn/go-ieproxy v0.0.9
+	github.com/mattn/go-ieproxy v0.0.9 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
