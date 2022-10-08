@@ -142,6 +142,7 @@ require (
 require (
 	github.com/Jille/raft-grpc-transport v1.2.0
 	github.com/arangodb/go-driver v1.3.3
+	github.com/armon/go-metrics v0.3.10
 	github.com/fluent/fluent-logger-golang v1.9.0
 	github.com/google/flatbuffers v22.9.29+incompatible
 	github.com/hanwen/go-fuse/v2 v2.1.1-0.20220627082937-d01fda7edf17
@@ -150,7 +151,7 @@ require (
 	github.com/rabbitmq/amqp091-go v1.5.0
 	github.com/tikv/client-go/v2 v2.0.1
 	github.com/ydb-platform/ydb-go-sdk-auth-environ v0.1.2
-	github.com/ydb-platform/ydb-go-sdk/v3 v3.38.3
+	github.com/ydb-platform/ydb-go-sdk/v3 v3.38.4
 	golang.org/x/sync v0.0.0-20220923202941-7f9b1623fab7
 	google.golang.org/grpc/security/advancedtls v0.0.0-20220622233350-5cdb09fa29c1
 )
@@ -159,7 +160,6 @@ require (
 	cloud.google.com/go/compute v1.7.0 // indirect
 	cloud.google.com/go/iam v0.3.0 // indirect
 	github.com/arangodb/go-velocypack v0.0.0-20200318135517-5af53c29c67e // indirect
-	github.com/armon/go-metrics v0.3.10 // indirect
 	github.com/aws/aws-sdk-go-v2 v1.16.8 // indirect
 	github.com/aws/aws-sdk-go-v2/config v1.15.15 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.12.10 // indirect
