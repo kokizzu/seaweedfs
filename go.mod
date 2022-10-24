@@ -43,7 +43,7 @@ require (
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/uuid v1.3.0
 	github.com/google/wire v0.5.0 // indirect
-	github.com/googleapis/gax-go/v2 v2.5.1 // indirect
+	github.com/googleapis/gax-go/v2 v2.6.0 // indirect
 	github.com/gorilla/mux v1.8.0
 	github.com/hailocab/go-hostpool v0.0.0-20160125115350-e80d13ce29ed // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
@@ -115,15 +115,15 @@ require (
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
 	golang.org/x/exp v0.0.0-20220414153411-bcd21879b8fd
 	golang.org/x/image v0.0.0-20200119044424-58c23975cae1
-	golang.org/x/net v0.0.0-20221012135044-0b7e1fb9d458
-	golang.org/x/oauth2 v0.0.0-20221006150949-b44042a4b9c1 // indirect
+	golang.org/x/net v0.0.0-20221014081412-f15817d10f9b
+	golang.org/x/oauth2 v0.0.0-20221014153046-6fdb5e3db783 // indirect
 	golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.12
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
-	google.golang.org/api v0.99.0
+	google.golang.org/api v0.100.0
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20221010155953-15ba04fc1c0e // indirect
+	google.golang.org/genproto v0.0.0-20221014213838-99cd37c6964a // indirect
 	google.golang.org/grpc v1.50.1
 	google.golang.org/protobuf v1.28.1
 	gopkg.in/inf.v0 v0.9.1 // indirect
