@@ -20,6 +20,9 @@ type ChunkGroup struct {
 	concurrentReaders int
 	// cacheInvalidator lets manifest resolution drop stale volume locations, as ReaderCache does for chunk reads
 	cacheInvalidator CacheInvalidator
+	// manifestCache caches resolved chunk manifest bytes across repeated opens
+	// for the same mount. nil for non-mount callers (no caching).
+	manifestCache *ChunkManifestCache
 	// resolveErr is set when chunk manifest resolution failed, guarded by
 	// sectionsLock. Reads must fail with this error instead of silently
 	// zero-filling the unresolved sections as if they were sparse holes.
@@ -32,7 +35,7 @@ type ChunkGroup struct {
 // - Read-ahead prefetch parallelism
 // - Number of concurrent section reads for large files
 // If concurrentReaders <= 0, defaults to 16.
-func NewChunkGroup(lookupFn wdclient.LookupFileIdFunctionType, chunkCache chunk_cache.ChunkCache, chunks []*filer_pb.FileChunk, concurrentReaders int, cacheInvalidator CacheInvalidator, budgets ...*ReaderCacheBudget) (*ChunkGroup, error) {
+func NewChunkGroup(lookupFn wdclient.LookupFileIdFunctionType, chunkCache chunk_cache.ChunkCache, chunks []*filer_pb.FileChunk, concurrentReaders int, cacheInvalidator CacheInvalidator, manifestCache *ChunkManifestCache, budgets ...*ReaderCacheBudget) (*ChunkGroup, error) {
 	if concurrentReaders <= 0 {
 		concurrentReaders = 16
 	}
@@ -50,6 +53,7 @@ func NewChunkGroup(lookupFn wdclient.LookupFileIdFunctionType, chunkCache chunk_
 		readerCache:       NewReaderCache(readerCacheLimit, chunkCache, lookupFn, cacheInvalidator, budgets...),
 		concurrentReaders: concurrentReaders,
 		cacheInvalidator:  cacheInvalidator,
+		manifestCache:     manifestCache,
 	}
 
 	err := group.SetChunks(chunks)
@@ -241,7 +245,7 @@ func (group *ChunkGroup) SetChunks(chunks []*filer_pb.FileChunk) error {
 			continue
 		}
 
-		resolvedChunks, err := ResolveOneChunkManifest(context.Background(), group.lookupFn, chunk, group.cacheInvalidator)
+		resolvedChunks, err := resolveOneChunkManifest(context.Background(), group.lookupFn, chunk, group.cacheInvalidator, group.manifestCache)
 		if err != nil {
 			// remember the failure so ReadDataAt returns an error instead of
 			// treating the unresolved sections as sparse holes

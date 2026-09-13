@@ -421,7 +421,7 @@ func TestChunkGroup_SearchChunks(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			group, err := NewChunkGroup(nil, nil, tt.chunks, 1, nil)
+			group, err := NewChunkGroup(nil, nil, tt.chunks, 1, nil, nil)
 			if !assert.NoError(t, err) {
 				return
 			}
@@ -447,7 +447,7 @@ func TestChunkGroup_ReadDataAt_ManifestResolveFailure(t *testing.T) {
 		{FileId: "1,1679011dc64abd40", IsChunkManifest: true, Offset: 0, Size: 1 << 20},
 	}
 
-	group, err := NewChunkGroup(lookupFn, nil, chunks, 1, nil)
+	group, err := NewChunkGroup(lookupFn, nil, chunks, 1, nil, nil)
 	assert.Error(t, err, "manifest resolution should fail")
 
 	// Reads must fail with the resolve error, not silently return zeros.
